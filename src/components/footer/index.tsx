@@ -4,7 +4,7 @@ export function Footer() {
     return (
         <footer className="bg-neutral-700 text-white py-16">
             <Layout>
-                <div className="flex flex-row justify-between">
+                <div className="flex flex-col lg:flex-row justify-between gap-5">
                     <div className="space-y-5">
                         <div>
                             <h1 className="text-3xl font-bold">Hotel Lunar</h1>

@@ -1,11 +1,9 @@
 import { Button } from '../components/button';
 import { Layout } from '../components/layout';
-import { Navbar } from '../components/navbar';
 import HomeImage from './assets/home.jpeg';
 import BedImage from './assets/bed.jpeg';
 import WeddingImage from './assets/wedding.jpeg';
 import { Overlay } from '../components/overlay';
-import { Footer } from '../components/footer';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
@@ -22,11 +20,8 @@ export function Home() {
     }, []);
     return (
         <>
-            <Layout>
-                <Navbar />
-            </Layout>
             <Overlay image={HomeImage}>
-                <h1 className="text-6xl font-bold text-white">A Memorable Experience.</h1>
+                <h1 className="text-5xl lg:text-6xl font-bold text-white text-center">A Memorable Experience.</h1>
                 <Button>Reserve Now</Button>
             </Overlay>
             <Layout>
@@ -34,8 +29,8 @@ export function Home() {
                     <h1 className="heading">
                         About <span className="heading-highlight">Hotel Lunar</span>
                     </h1>
-                    <div className="grid grid-cols-4 grid-flow-col items-center">
-                        <div className="font-semibold space-y-5 col-span-2">
+                    <div className="grid grid-cols-1 lg:grid-cols-4 grid-flow-row lg:grid-flow-col items-center gap-5">
+                        <div className="font-semibold space-y-5 lg:col-span-2">
                             <p>
                                 Ladies and gentlemen, history keeps repeating itself but doesn't teach us any lessons.
                                 'Never again' has turned into 'again and again and again.' So today, ladies and
@@ -121,7 +116,6 @@ export function Home() {
                     </div>
                 </div>
             </Layout>
-            <Footer />
         </>
     );
 }

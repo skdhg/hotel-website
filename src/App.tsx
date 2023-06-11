@@ -1,14 +1,17 @@
-import { Home } from './pages/Home';
-import { useRoutes } from 'raviger';
+import { Footer } from './components/footer';
+import { Layout } from './components/layout';
+import { Navbar } from './components/navbar';
 
-const routes = {
-    '/': () => <Home />
-};
-
-function App() {
-    const route = useRoutes(routes);
-
-    return <main className="text-gray-700">{route}</main>;
+function App({ children }: React.PropsWithChildren) {
+    return (
+        <main className="text-gray-700">
+            <Layout>
+                <Navbar />
+            </Layout>
+            {children}
+            <Footer />
+        </main>
+    );
 }
 
 export default App;

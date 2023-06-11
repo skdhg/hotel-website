@@ -1,5 +1,7 @@
+import { useState } from 'react';
 import { Link } from 'raviger';
 import { NavLink } from './NavLink';
+import { FiMenu, FiX } from 'react-icons/fi';
 
 const Links = [
     { name: 'Home', link: '/' },
@@ -11,16 +13,42 @@ const Links = [
 ] as const;
 
 export function Navbar() {
+    const [navOpen, setNavOpen] = useState(false);
+
+    const toggleNav = () => {
+        setNavOpen((p) => !p);
+    };
+
     return (
-        <nav className="flex flex-row items-center justify-between h-16">
-            <Link href="/">
-                <h1 className="text-purple-500 font-bold text-2xl">Hotel Lunar</h1>
-            </Link>
-            <ul className="flex justify-between gap-8 items-center font-semibold">
-                {Links.map((link) => (
-                    <NavLink key={link.name} label={link.name} link={link.link} />
-                ))}
-            </ul>
-        </nav>
+        <header>
+            <nav className="flex flex-row items-center justify-between h-16">
+                <Link href="/">
+                    <h1 className="text-purple-500 font-bold text-2xl">Hotel Lunar</h1>
+                </Link>
+                <ul className="hidden lg:flex justify-between gap-8 items-center font-semibold">
+                    {Links.map((link) => (
+                        <NavLink key={link.name} label={link.name} link={link.link} />
+                    ))}
+                </ul>
+                <div className="lg:hidden text-xl">
+                    {navOpen ? <FiX onClick={toggleNav} /> : <FiMenu onClick={toggleNav} />}
+                </div>
+            </nav>
+            {navOpen && (
+                <div className="h-screen lg:hidden border-t border-gray-200 py-5">
+                    <ul className="space-y-5">
+                        {Links.map((link) => (
+                            <NavLink
+                                key={link.name}
+                                label={link.name}
+                                link={link.link}
+                                mobile
+                                onNavigate={() => setNavOpen(false)}
+                            />
+                        ))}
+                    </ul>
+                </div>
+            )}
+        </header>
     );
 }
