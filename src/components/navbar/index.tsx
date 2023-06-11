@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import { Link } from 'raviger';
 import { NavLink } from './NavLink';
 import { FiMenu, FiX } from 'react-icons/fi';
@@ -15,9 +15,11 @@ const Links = [
 export function Navbar() {
     const [navOpen, setNavOpen] = useState(false);
 
-    const toggleNav = () => {
-        setNavOpen((p) => !p);
-    };
+    const toggleNav = useCallback((value: boolean) => {
+        return () => {
+            setNavOpen(value);
+        };
+    }, []);
 
     return (
         <header>
@@ -31,7 +33,7 @@ export function Navbar() {
                     ))}
                 </ul>
                 <div className="lg:hidden text-xl">
-                    {navOpen ? <FiX onClick={toggleNav} /> : <FiMenu onClick={toggleNav} />}
+                    {navOpen ? <FiX onClick={toggleNav(false)} /> : <FiMenu onClick={toggleNav(true)} />}
                 </div>
             </nav>
             {navOpen && (
