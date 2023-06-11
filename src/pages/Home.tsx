@@ -10,14 +10,10 @@ import 'swiper/css/navigation';
 import { Swiper, SwiperSlide } from 'swiper/react';
 // @ts-expect-error fewf
 import { Navigation, Pagination, Autoplay } from 'swiper';
-import { useEffect } from 'react';
 
 const galleries = new Array(3).fill([HomeImage, BedImage, WeddingImage]).flat();
 
 export function Home() {
-    useEffect(() => {
-        console.log(galleries);
-    }, []);
     return (
         <>
             <Overlay image={HomeImage}>
