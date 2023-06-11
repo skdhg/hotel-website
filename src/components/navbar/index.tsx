@@ -45,7 +45,7 @@ export function Navbar() {
                                 label={link.name}
                                 link={link.link}
                                 mobile
-                                onNavigate={() => setNavOpen(false)}
+                                onNavigate={toggleNav(false)}
                             />
                         ))}
                     </ul>
