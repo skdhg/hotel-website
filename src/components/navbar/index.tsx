@@ -3,7 +3,7 @@ import { Link } from 'raviger';
 import { NavLink } from './NavLink';
 import { FiMenu, FiX } from 'react-icons/fi';
 
-const Links = [
+export const PageRoutes = [
     { name: 'Home', link: '/' },
     { name: 'Rooms & Suites', link: '/rooms-and-suites' },
     { name: 'Facilities', link: '/facilities' },
@@ -28,7 +28,7 @@ export function Navbar() {
                     <h1 className="text-purple-500 font-bold text-2xl">Hotel Lunar</h1>
                 </Link>
                 <ul className="hidden lg:flex justify-between gap-8 items-center font-semibold">
-                    {Links.map((link) => (
+                    {PageRoutes.map((link) => (
                         <NavLink key={link.name} label={link.name} link={link.link} />
                     ))}
                 </ul>
@@ -39,7 +39,7 @@ export function Navbar() {
             {navOpen && (
                 <div className="h-screen lg:hidden border-t border-gray-200 py-5">
                     <ul className="space-y-5">
-                        {Links.map((link) => (
+                        {PageRoutes.map((link) => (
                             <NavLink
                                 key={link.name}
                                 label={link.name}
