@@ -21,7 +21,7 @@ export function RoomsAndSuites() {
                 <h1 className="text-5xl lg:text-6xl font-bold text-white text-center uppercase">Our Rooms And Rate</h1>
             </Overlay>
             <Layout>
-                <div className="grid grid-cols-2 place-items-center gap-16 my-20">
+                <div className="grid grid-cols-1 lg:grid-cols-2 place-items-center gap-16 my-20">
                     {beds.map((bed, id) => (
                         <Card key={id} image={BedImage} label={bed.name}>
                             <li>1 bathroom</li>
